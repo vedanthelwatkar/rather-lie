@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You Sayuuu 💋</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffb6c1, #ffd6e0);
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      background-color: #ff4b91;
+      border: none;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff2f7d;
+    }
+  </style>
+</head>
+<body>
+  <h1>For you Sayuuu 💋</h1>
+  <div>
+    <button id="startBtn">Start</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+
+  <script>
+    const lyrics = [
+      "Wrist in the freezer",
+      "I'ma crash out 'cause you mine",
+      "I'ma pull up, get behind you",
+      "All of that ass, let me bite that",
+      "Give you my card, tell you, 'Swipe that'",
+      "It wasn't you, it's me, it ain't me, it's you",
+      "I know it's hard to see, but I'd rather lie than lose",
+      "I'd rather, I'd rather, I'd rather",
+      "I'd rather lie than to lose you, girl (Swamp Izzo)",
+      "I'd rather lie than confuse you, girl"
+    ];
+
+    let index = 0;
+    let playing = false;
+
+    function showNextLyric() {
+      if (index < lyrics.length && playing) {
+        alert(lyrics[index]);
+        index++;
+        setTimeout(showNextLyric, 500);
+      }
+    }
+
+    document.getElementById("startBtn").addEventListener("click", () => {
+      if (!playing) {
+        playing = true;
+        index = 0;
+        showNextLyric();
+      }
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      playing = false;
+      index = 0;
+      alert("Restarted ❤️");
+    });
+  </script>
+</body>
+</html>
