@@ -1,90 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For You Sayuuu 💋</title>
-  <style>
-    body {
-      background: linear-gradient(135deg, #ffb6c1, #ffd6e0);
-      font-family: "Poppins", sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    button {
-      background-color: #ff4b91;
-      border: none;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      margin: 0.5rem;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #ff2f7d;
-    }
-  </style>
-</head>
-<body>
-  <h1>For you Sayuuu 💋</h1>
-  <div>
-    <button id="startBtn">Start</button>
-    <button id="resetBtn">Reset</button>
-  </div>
-
-  <script>
-    const lyrics = [
-      "Wrist in the freezer",
-      "I'ma crash out 'cause you mine",
-      "I'ma pull up, get behind you",
-      "All of that ass, let me bite that",
-      "Give you my card, tell you, 'Swipe that'",
-      "It wasn't you, it's me, it ain't me, it's you",
-      "I know it's hard to see, but I'd rather lie than lose",
-      "I'd rather, I'd rather, I'd rather",
-      "I'd rather lie than to lose you, girl (Swamp Izzo)",
-      "I'd rather lie than confuse you, girl"
-    ];
-
-    let index = 0;
-    let playing = false;
-
-    function showNextLyric() {
-      if (index < lyrics.length && playing) {
-        alert(lyrics[index]);
-        index++;
-        setTimeout(showNextLyric, 500);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For You Sayuuu 💋</title>
+    <style>
+      body {
+        background: linear-gradient(135deg, #ffb6c1, #ffd6e0);
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        color: #fff;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
       }
-    }
 
-    document.getElementById("startBtn").addEventListener("click", () => {
-      if (!playing) {
-        playing = true;
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      select,
+      button {
+        background-color: #ff4b91;
+        border: none;
+        color: white;
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 0.5rem;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover,
+      select:hover {
+        background-color: #ff2f7d;
+      }
+
+      select {
+        appearance: none;
+        outline: none;
+        cursor: pointer;
+      }
+
+      option[disabled] {
+        color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>For you Sayuuu 💋</h1>
+    <div>
+      <select id="songSelect">
+        <option value="" disabled selected>Select a song 💽</option>
+        <option value="ratherLie">Rather Lie — Playboi Carti</option>
+        <option value="toxic">Toxic — Playboi Carti</option>
+        <option value="sunflower">Sunflower — Post Malone</option>
+      </select>
+    </div>
+    <div>
+      <button id="startBtn">Start</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+
+    <script>
+      const songs = {
+        ratherLie: [
+          "Wrist in the freezer",
+          "I'ma crash out 'cause you mine",
+          "I'ma pull up, get behind you",
+          "All of that ass, let me bite that",
+          "Give you my card, tell you, 'Swipe that'",
+          "It wasn't you, it's me, it ain't me, it's you",
+          "I know it's hard to see, but I'd rather lie than lose",
+          "I'd rather, I'd rather, I'd rather",
+          "I'd rather lie than to lose you, girl (Swamp Izzo)",
+          "I'd rather lie than confuse you, girl",
+        ],
+        toxic: [
+          "I study the streets, how you gonna go to war with a genius?",
+          "This ain't community service, but I came in with them street sweepers",
+          "Your boyfriend is a follower, why don't you come roll with the leaders?",
+          "She told me she loves me, ha, woah, I told her, 'I'm speechless'",
+          "I'm The Omen, heart is frozen, if it ain't fam', I got no emotions",
+          "Like poker, when I poke 'em, wireless texts, just hold 'em",
+          "We got the club goin' up like Makkonen",
+          "Everyday, we're cashin' 'em checks, Big Smoke, you know the slogan",
+          "I need a million dollars, I need a million euros",
+          "I need a million pound, your wifey ringin' me down",
+          "She said I was trash, you feelin' me now",
+          "Uh, Playboi, tell 'em, I broke America, big in the east",
+          "I'm big in the west, I'm big in the south",
+          "Big racks, they jump out the house",
+          "The moshpit, been toxic",
+          "I got too much profit",
+          "I got too much profit",
+          "I got too much profit",
+        ],
+        sunflower: [
+          "Ooh-ooh-ooh",
+          "Some things you just can't refuse",
+          "She wanna ride me like a cruise",
+          "And I'm not tryna lose",
+          "Then you're left in the dust",
+          "Unless I stuck by ya",
+          "You're the sunflower",
+          "I think your love would be too much",
+          "Or you'll be left in the dust",
+          "Unless I stuck by ya",
+          "You're the sunflower",
+          "You're the sunflower",
+        ],
+      };
+
+      let index = 0;
+      let playing = false;
+      let currentSong = null;
+
+      const songSelect = document.getElementById("songSelect");
+
+      songSelect.addEventListener("change", (e) => {
+        currentSong = songs[e.target.value];
         index = 0;
-        showNextLyric();
-      }
-    });
+        playing = false;
+        alert(
+          `Now playing: ${e.target.options[e.target.selectedIndex].text} 💖`
+        );
+      });
 
-    document.getElementById("resetBtn").addEventListener("click", () => {
-      playing = false;
-      index = 0;
-      alert("Restarted ❤️");
-    });
-  </script>
-</body>
+      function showNextLyric() {
+        if (currentSong && index < currentSong.length && playing) {
+          alert(currentSong[index]);
+          index++;
+          setTimeout(showNextLyric, 500);
+        }
+      }
+
+      document.getElementById("startBtn").addEventListener("click", () => {
+        if (!currentSong) {
+          alert("Please select a song first 💽");
+          return;
+        }
+        if (!playing) {
+          playing = true;
+          index = 0;
+          showNextLyric();
+        }
+      });
+
+      document.getElementById("resetBtn").addEventListener("click", () => {
+        playing = false;
+        index = 0;
+        alert("Restarted ❤️");
+      });
+    </script>
+  </body>
 </html>
